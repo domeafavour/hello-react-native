@@ -1,7 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -15,9 +16,16 @@ export const styles = StyleSheet.create({
 });
 
 export function HelloWorld() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hello World!</Text>
+      <Button
+        title="Show Details Screen"
+        onPress={() => {
+          navigation.navigate("Details");
+        }}
+      />
       <StatusBar style="auto" />
     </View>
   );
